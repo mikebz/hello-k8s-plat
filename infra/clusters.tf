@@ -52,3 +52,19 @@ resource "google_container_cluster" "hello-west" {
     workload_pool = "mikebz-ex1.svc.id.goog"
   }
 }
+
+resource "google_container_cluster" "hello-east" {
+  provider = google
+  name     = "hello-east"
+  location = "us-east1"
+  project  = "mikebz-ex1"
+  initial_node_count = 2
+  deletion_protection = "false"
+  fleet {
+    project = "mikebz-ex1"
+  }
+
+  workload_identity_config {
+    workload_pool = "mikebz-ex1.svc.id.goog"
+  }
+}
