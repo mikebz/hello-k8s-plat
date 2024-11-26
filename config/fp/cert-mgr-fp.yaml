@@ -1,0 +1,12 @@
+resourceBundleSelector:
+  cloudBuildRepository:
+    name: projects/mikebz-ex1/locations/us-central1/connections/github1/repositories/mikebz-hello-k8s-plat
+    serviceAccount: projects/mikebz-ex1/serviceAccounts/cfgdelivery-cloud-build-sa@mikebz-ex1.iam.gserviceaccount.com
+    path: config/cert-mgr
+    tag: v0.1.0
+target:
+  fleet:
+    project: projects/mikebz-ex1
+rolloutStrategy:
+  rolling:
+    maxConcurrent: 1

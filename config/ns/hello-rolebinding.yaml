@@ -1,0 +1,16 @@
+
+# this rolebinding
+# assumes that you are naming your package `hello-pkg`
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: reposync-rb
+  namespace: hello
+subjects:
+- kind: ServiceAccount
+  name: ns-reconciler-hello-hello-pkg-9
+  namespace: config-management-system
+roleRef:
+  kind: ClusterRole
+  name: edit
+  apiGroup: rbac.authorization.k8s.io
